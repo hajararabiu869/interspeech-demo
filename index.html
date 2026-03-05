@@ -7,38 +7,64 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      max-width: 1000px;
+      max-width: 1100px;
       margin: 40px auto;
       padding: 0 20px;
       line-height: 1.6;
     }
+
     h1, h2, h3 {
       margin-top: 1.2em;
     }
+
+    .section-desc {
+      color: #444;
+      margin-bottom: 20px;
+    }
+
     .sample-block {
       border: 1px solid #ccc;
       border-radius: 8px;
       padding: 16px;
       margin: 20px 0;
+      background: #fafafa;
     }
+
+    .sample-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
     .audio-row {
-      margin: 10px 0;
+      margin: 12px 0;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
     }
+
     .label {
       font-weight: bold;
-      display: inline-block;
-      width: 140px;
-      vertical-align: top;
+      width: 220px;
+      flex-shrink: 0;
     }
+
     audio {
-      width: 70%;
-      vertical-align: middle;
+      width: 520px;
+      max-width: 100%;
     }
-    .prompt-text {
-      background: #f7f7f7;
-      padding: 10px;
-      border-radius: 6px;
-      margin-bottom: 12px;
+
+    .note {
+      font-size: 14px;
+      color: #666;
+      margin-top: 8px;
+    }
+
+    hr {
+      margin: 40px 0;
+      border: none;
+      border-top: 1px solid #ddd;
     }
   </style>
 </head>
@@ -46,72 +72,152 @@
   <h1>Anonymous Demo for Interspeech 2026 Submission</h1>
 
   <p>
-    This page provides representative audio samples for anonymous review.
-    The speaker identities and project metadata are intentionally omitted to preserve anonymity.
+    This page provides representative long-form dialogue samples for anonymous review.
+    The goal is to compare perceptual differences across post-training methods in terms of
+    naturalness and stability. No prompt text or ground-truth audio is provided here, since
+    the focus is on comparative listening across systems.
   </p>
 
-  <h2>Prompt 1</h2>
+  <hr />
+
+  <h2>1. SFT / DPO / RankDPO Comparison</h2>
+  <p class="section-desc">
+    This section compares the baseline SFT model with DPO and RankDPO.
+  </p>
+
   <div class="sample-block">
-    <div class="prompt-text">
-      <strong>Text:</strong> 最近我在尝试一件新事，就是每天用十分钟写感恩清单。
-    </div>
-
-    <div class="audio-row">
-      <span class="label">Ground Truth</span>
-      <audio controls src="samples/prompt1_gt.wav"></audio>
-    </div>
-
+    <div class="sample-title">Comparison 1</div>
     <div class="audio-row">
       <span class="label">SFT</span>
-      <audio controls src="samples/prompt1_sft.wav"></audio>
+      <audio controls src="samples/group1_cmp1_sft.wav"></audio>
     </div>
-
     <div class="audio-row">
       <span class="label">DPO</span>
-      <audio controls src="samples/prompt1_dpo.wav"></audio>
+      <audio controls src="samples/group1_cmp1_dpo.wav"></audio>
     </div>
-
     <div class="audio-row">
-      <span class="label">Rank3DPO</span>
-      <audio controls src="samples/prompt1_rank3dpo.wav"></audio>
-    </div>
-
-    <div class="audio-row">
-      <span class="label">GRPO</span>
-      <audio controls src="samples/prompt1_grpo.wav"></audio>
+      <span class="label">RankDPO</span>
+      <audio controls src="samples/group1_cmp1_rankdpo.wav"></audio>
     </div>
   </div>
 
-  <h2>Prompt 2</h2>
   <div class="sample-block">
-    <div class="prompt-text">
-      <strong>Text:</strong> 今天下课以后我打算先去操场跑一会儿，再回宿舍整理实验结果。
-    </div>
-
-    <div class="audio-row">
-      <span class="label">Ground Truth</span>
-      <audio controls src="samples/prompt2_gt.wav"></audio>
-    </div>
-
+    <div class="sample-title">Comparison 2</div>
     <div class="audio-row">
       <span class="label">SFT</span>
-      <audio controls src="samples/prompt2_sft.wav"></audio>
+      <audio controls src="samples/group1_cmp2_sft.wav"></audio>
     </div>
-
     <div class="audio-row">
       <span class="label">DPO</span>
-      <audio controls src="samples/prompt2_dpo.wav"></audio>
+      <audio controls src="samples/group1_cmp2_dpo.wav"></audio>
     </div>
-
     <div class="audio-row">
-      <span class="label">Rank3DPO</span>
-      <audio controls src="samples/prompt2_rank3dpo.wav"></audio>
-    </div>
-
-    <div class="audio-row">
-      <span class="label">GRPO</span>
-      <audio controls src="samples/prompt2_grpo.wav"></audio>
+      <span class="label">RankDPO</span>
+      <audio controls src="samples/group1_cmp2_rankdpo.wav"></audio>
     </div>
   </div>
+
+  <div class="sample-block">
+    <div class="sample-title">Comparison 3</div>
+    <div class="audio-row">
+      <span class="label">SFT</span>
+      <audio controls src="samples/group1_cmp3_sft.wav"></audio>
+    </div>
+    <div class="audio-row">
+      <span class="label">DPO</span>
+      <audio controls src="samples/group1_cmp3_dpo.wav"></audio>
+    </div>
+    <div class="audio-row">
+      <span class="label">RankDPO</span>
+      <audio controls src="samples/group1_cmp3_rankdpo.wav"></audio>
+    </div>
+  </div>
+
+  <hr />
+
+  <h2>2. Effect of ChatScore in DPO and RankDPO</h2>
+  <p class="section-desc">
+    This section compares variants with and without ChatScore for DPO and RankDPO.
+  </p>
+
+  <div class="sample-block">
+    <div class="sample-title">Comparison 4: DPO without vs. with ChatScore</div>
+    <div class="audio-row">
+      <span class="label">DPO w/o ChatScore</span>
+      <audio controls src="samples/group2_cmp1_dpo_wo_chat.wav"></audio>
+    </div>
+    <div class="audio-row">
+      <span class="label">DPO w/ ChatScore</span>
+      <audio controls src="samples/group2_cmp1_dpo_w_chat.wav"></audio>
+    </div>
+  </div>
+
+  <div class="sample-block">
+    <div class="sample-title">Comparison 5: RankDPO without vs. with ChatScore</div>
+    <div class="audio-row">
+      <span class="label">RankDPO w/o ChatScore</span>
+      <audio controls src="samples/group2_cmp2_rankdpo_wo_chat.wav"></audio>
+    </div>
+    <div class="audio-row">
+      <span class="label">RankDPO w/ ChatScore</span>
+      <audio controls src="samples/group2_cmp2_rankdpo_w_chat.wav"></audio>
+    </div>
+  </div>
+
+  <div class="sample-block">
+    <div class="sample-title">Comparison 6: DPO + ChatScore vs. RankDPO + ChatScore</div>
+    <div class="audio-row">
+      <span class="label">DPO w/ ChatScore</span>
+      <audio controls src="samples/group2_cmp3_dpo_w_chat.wav"></audio>
+    </div>
+    <div class="audio-row">
+      <span class="label">RankDPO w/ ChatScore</span>
+      <audio controls src="samples/group2_cmp3_rankdpo_w_chat.wav"></audio>
+    </div>
+  </div>
+
+  <hr />
+
+  <h2>3. GRPO / RankDPO Comparison</h2>
+  <p class="section-desc">
+    This section compares GRPO and RankDPO under long-form dialogue generation.
+  </p>
+
+  <div class="sample-block">
+    <div class="sample-title">Comparison 7</div>
+    <div class="audio-row">
+      <span class="label">GRPO</span>
+      <audio controls src="samples/group3_cmp1_grpo.wav"></audio>
+    </div>
+    <div class="audio-row">
+      <span class="label">RankDPO</span>
+      <audio controls src="samples/group3_cmp1_rankdpo.wav"></audio>
+    </div>
+  </div>
+
+  <div class="sample-block">
+    <div class="sample-title">Comparison 8</div>
+    <div class="audio-row">
+      <span class="label">GRPO</span>
+      <audio controls src="samples/group3_cmp2_grpo.wav"></audio>
+    </div>
+    <div class="audio-row">
+      <span class="label">RankDPO</span>
+      <audio controls src="samples/group3_cmp2_rankdpo.wav"></audio>
+    </div>
+  </div>
+
+  <div class="sample-block">
+    <div class="sample-title">Comparison 9</div>
+    <div class="audio-row">
+      <span class="label">GRPO</span>
+      <audio controls src="samples/group3_cmp3_grpo.wav"></audio>
+    </div>
+    <div class="audio-row">
+      <span class="label">RankDPO</span>
+      <audio controls src="samples/group3_cmp3_rankdpo.wav"></audio>
+    </div>
+  </div>
+
 </body>
 </html>
