@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anonymous Demo Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      margin-top: 1.2em;
+    }
+    .sample-block {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 16px;
+      margin: 20px 0;
+    }
+    .audio-row {
+      margin: 10px 0;
+    }
+    .label {
+      font-weight: bold;
+      display: inline-block;
+      width: 140px;
+      vertical-align: top;
+    }
+    audio {
+      width: 70%;
+      vertical-align: middle;
+    }
+    .prompt-text {
+      background: #f7f7f7;
+      padding: 10px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Anonymous Demo for Interspeech 2026 Submission</h1>
+
+  <p>
+    This page provides representative audio samples for anonymous review.
+    The speaker identities and project metadata are intentionally omitted to preserve anonymity.
+  </p>
+
+  <h2>Prompt 1</h2>
+  <div class="sample-block">
+    <div class="prompt-text">
+      <strong>Text:</strong> 最近我在尝试一件新事，就是每天用十分钟写感恩清单。
+    </div>
+
+    <div class="audio-row">
+      <span class="label">Ground Truth</span>
+      <audio controls src="samples/prompt1_gt.wav"></audio>
+    </div>
+
+    <div class="audio-row">
+      <span class="label">SFT</span>
+      <audio controls src="samples/prompt1_sft.wav"></audio>
+    </div>
+
+    <div class="audio-row">
+      <span class="label">DPO</span>
+      <audio controls src="samples/prompt1_dpo.wav"></audio>
+    </div>
+
+    <div class="audio-row">
+      <span class="label">Rank3DPO</span>
+      <audio controls src="samples/prompt1_rank3dpo.wav"></audio>
+    </div>
+
+    <div class="audio-row">
+      <span class="label">GRPO</span>
+      <audio controls src="samples/prompt1_grpo.wav"></audio>
+    </div>
+  </div>
+
+  <h2>Prompt 2</h2>
+  <div class="sample-block">
+    <div class="prompt-text">
+      <strong>Text:</strong> 今天下课以后我打算先去操场跑一会儿，再回宿舍整理实验结果。
+    </div>
+
+    <div class="audio-row">
+      <span class="label">Ground Truth</span>
+      <audio controls src="samples/prompt2_gt.wav"></audio>
+    </div>
+
+    <div class="audio-row">
+      <span class="label">SFT</span>
+      <audio controls src="samples/prompt2_sft.wav"></audio>
+    </div>
+
+    <div class="audio-row">
+      <span class="label">DPO</span>
+      <audio controls src="samples/prompt2_dpo.wav"></audio>
+    </div>
+
+    <div class="audio-row">
+      <span class="label">Rank3DPO</span>
+      <audio controls src="samples/prompt2_rank3dpo.wav"></audio>
+    </div>
+
+    <div class="audio-row">
+      <span class="label">GRPO</span>
+      <audio controls src="samples/prompt2_grpo.wav"></audio>
+    </div>
+  </div>
+</body>
+</html>
