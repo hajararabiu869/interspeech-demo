@@ -12,59 +12,36 @@
       padding: 0 20px;
       line-height: 1.6;
     }
-
     h1, h2, h3 {
       margin-top: 1.2em;
     }
-
-    .section-desc {
-      color: #444;
-      margin-bottom: 20px;
+    .group-block {
+      margin: 36px 0;
     }
-
     .sample-block {
       border: 1px solid #ccc;
       border-radius: 8px;
       padding: 16px;
       margin: 20px 0;
-      background: #fafafa;
     }
-
-    .sample-title {
-      font-size: 18px;
-      font-weight: bold;
-      margin-bottom: 12px;
-    }
-
     .audio-row {
       margin: 12px 0;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
     }
-
     .label {
       font-weight: bold;
+      display: inline-block;
       width: 220px;
-      flex-shrink: 0;
+      vertical-align: top;
     }
-
     audio {
-      width: 520px;
-      max-width: 100%;
+      width: 68%;
+      vertical-align: middle;
     }
-
     .note {
-      font-size: 14px;
-      color: #666;
-      margin-top: 8px;
-    }
-
-    hr {
-      margin: 40px 0;
-      border: none;
-      border-top: 1px solid #ddd;
+      background: #f7f7f7;
+      padding: 12px;
+      border-radius: 6px;
+      margin-bottom: 12px;
     }
   </style>
 </head>
@@ -73,151 +50,148 @@
 
   <p>
     This page provides representative long-form dialogue samples for anonymous review.
-    The goal is to compare perceptual differences across post-training methods in terms of
-    naturalness and stability. No prompt text or ground-truth audio is provided here, since
-    the focus is on comparative listening across systems.
+    The comparisons are organized by model settings to highlight perceptual differences in naturalness and stability.
   </p>
 
-  <hr />
+  <!-- Group 1 -->
+  <div class="group-block">
+    <h2>1. SFT vs DPO vs RankDPO</h2>
 
-  <h2>1. SFT / DPO / RankDPO Comparison</h2>
-  <p class="section-desc">
-    This section compares the baseline SFT model with DPO and RankDPO.
-  </p>
+    <div class="sample-block">
+      <div class="note">
+        <strong>Sample 1</strong>
+      </div>
 
-  <div class="sample-block">
-    <div class="sample-title">Comparison 1</div>
-    <div class="audio-row">
-      <span class="label">SFT</span>
-      <audio controls src="samples/group1_cmp1_sft.wav"></audio>
+      <div class="audio-row">
+        <span class="label">SFT</span>
+        <audio controls src="samples/sft-null-batch_5.wav"></audio>
+      </div>
+
+      <div class="audio-row">
+        <span class="label">DPO + ChatScore</span>
+        <audio controls src="samples/dpo-null-csc-batch_5.wav"></audio>
+      </div>
+
+      <div class="audio-row">
+        <span class="label">RankDPO + ChatScore</span>
+        <audio controls src="samples/rank3-null-csc-batch_5.wav"></audio>
+      </div>
     </div>
-    <div class="audio-row">
-      <span class="label">DPO</span>
-      <audio controls src="samples/group1_cmp1_dpo.wav"></audio>
-    </div>
-    <div class="audio-row">
-      <span class="label">RankDPO</span>
-      <audio controls src="samples/group1_cmp1_rankdpo.wav"></audio>
+
+    <div class="sample-block">
+      <div class="note">
+        <strong>Sample 2</strong>
+      </div>
+
+      <div class="audio-row">
+        <span class="label">SFT</span>
+        <audio controls src="samples/sft-null-batch_2.wav"></audio>
+      </div>
+
+      <div class="audio-row">
+        <span class="label">DPO + ChatScore</span>
+        <audio controls src="samples/dpo-null-csc-batch_2.wav"></audio>
+      </div>
+
+      <div class="audio-row">
+        <span class="label">RankDPO + ChatScore</span>
+        <audio controls src="samples/rank3-null-csc-batch_2.wav"></audio>
+      </div>
     </div>
   </div>
 
-  <div class="sample-block">
-    <div class="sample-title">Comparison 2</div>
-    <div class="audio-row">
-      <span class="label">SFT</span>
-      <audio controls src="samples/group1_cmp2_sft.wav"></audio>
+  <!-- Group 2 -->
+  <div class="group-block">
+    <h2>2. Effect of ChatScore in DPO and RankDPO</h2>
+
+    <div class="sample-block">
+      <div class="note">
+        <strong>Sample 1</strong>
+      </div>
+
+      <div class="audio-row">
+        <span class="label">DPO</span>
+        <audio controls src="samples/dpo-null-cs-batch_5.wav"></audio>
+      </div>
+
+      <div class="audio-row">
+        <span class="label">DPO + ChatScore</span>
+        <audio controls src="samples/dpo-null-csc-batch_5.wav"></audio>
+      </div>
+
+      <div class="audio-row">
+        <span class="label">RankDPO</span>
+        <audio controls src="samples/rank3-null-cs-batch_5.wav"></audio>
+      </div>
+
+      <div class="audio-row">
+        <span class="label">RankDPO + ChatScore</span>
+        <audio controls src="samples/rank3-null-csc-batch_5.wav"></audio>
+      </div>
     </div>
-    <div class="audio-row">
-      <span class="label">DPO</span>
-      <audio controls src="samples/group1_cmp2_dpo.wav"></audio>
-    </div>
-    <div class="audio-row">
-      <span class="label">RankDPO</span>
-      <audio controls src="samples/group1_cmp2_rankdpo.wav"></audio>
+
+    <div class="sample-block">
+      <div class="note">
+        <strong>Sample 2</strong>
+      </div>
+
+      <div class="audio-row">
+        <span class="label">DPO</span>
+        <audio controls src="samples/dpo-null-cs-batch_2.wav"></audio>
+      </div>
+
+      <div class="audio-row">
+        <span class="label">DPO + ChatScore</span>
+        <audio controls src="samples/dpo-null-csc-batch_2.wav"></audio>
+      </div>
+
+      <div class="audio-row">
+        <span class="label">RankDPO</span>
+        <audio controls src="samples/rank3-null-cs-batch_2.wav"></audio>
+      </div>
+
+      <div class="audio-row">
+        <span class="label">RankDPO + ChatScore</span>
+        <audio controls src="samples/rank3-null-csc-batch_2.wav"></audio>
+      </div>
     </div>
   </div>
 
-  <div class="sample-block">
-    <div class="sample-title">Comparison 3</div>
-    <div class="audio-row">
-      <span class="label">SFT</span>
-      <audio controls src="samples/group1_cmp3_sft.wav"></audio>
+  <!-- Group 3 -->
+  <div class="group-block">
+    <h2>3. GRPO vs RankDPO</h2>
+
+    <div class="sample-block">
+      <div class="note">
+        <strong>Sample 1</strong>
+      </div>
+
+      <div class="audio-row">
+        <span class="label">GRPO</span>
+        <audio controls src="samples/grpo-1.wav"></audio>
+      </div>
+
+      <div class="audio-row">
+        <span class="label">RankDPO</span>
+        <audio controls src="samples/rank-1.wav"></audio>
+      </div>
     </div>
-    <div class="audio-row">
-      <span class="label">DPO</span>
-      <audio controls src="samples/group1_cmp3_dpo.wav"></audio>
-    </div>
-    <div class="audio-row">
-      <span class="label">RankDPO</span>
-      <audio controls src="samples/group1_cmp3_rankdpo.wav"></audio>
+
+    <div class="sample-block">
+      <div class="note">
+        <strong>Sample 2</strong>
+      </div>
+
+      <div class="audio-row">
+        <span class="label">GRPO</span>
+        <audio controls src="samples/grpo-2.wav"></audio>
+      </div>
+
+      <div class="audio-row">
+        <span class="label">RankDPO</span>
+        <audio controls src="samples/rank-2.wav"></audio>
+      </div>
     </div>
   </div>
-
-  <hr />
-
-  <h2>2. Effect of ChatScore in DPO and RankDPO</h2>
-  <p class="section-desc">
-    This section compares variants with and without ChatScore for DPO and RankDPO.
-  </p>
-
-  <div class="sample-block">
-    <div class="sample-title">Comparison 4: DPO without vs. with ChatScore</div>
-    <div class="audio-row">
-      <span class="label">DPO w/o ChatScore</span>
-      <audio controls src="samples/group2_cmp1_dpo_wo_chat.wav"></audio>
-    </div>
-    <div class="audio-row">
-      <span class="label">DPO w/ ChatScore</span>
-      <audio controls src="samples/group2_cmp1_dpo_w_chat.wav"></audio>
-    </div>
-  </div>
-
-  <div class="sample-block">
-    <div class="sample-title">Comparison 5: RankDPO without vs. with ChatScore</div>
-    <div class="audio-row">
-      <span class="label">RankDPO w/o ChatScore</span>
-      <audio controls src="samples/group2_cmp2_rankdpo_wo_chat.wav"></audio>
-    </div>
-    <div class="audio-row">
-      <span class="label">RankDPO w/ ChatScore</span>
-      <audio controls src="samples/group2_cmp2_rankdpo_w_chat.wav"></audio>
-    </div>
-  </div>
-
-  <div class="sample-block">
-    <div class="sample-title">Comparison 6: DPO + ChatScore vs. RankDPO + ChatScore</div>
-    <div class="audio-row">
-      <span class="label">DPO w/ ChatScore</span>
-      <audio controls src="samples/group2_cmp3_dpo_w_chat.wav"></audio>
-    </div>
-    <div class="audio-row">
-      <span class="label">RankDPO w/ ChatScore</span>
-      <audio controls src="samples/group2_cmp3_rankdpo_w_chat.wav"></audio>
-    </div>
-  </div>
-
-  <hr />
-
-  <h2>3. GRPO / RankDPO Comparison</h2>
-  <p class="section-desc">
-    This section compares GRPO and RankDPO under long-form dialogue generation.
-  </p>
-
-  <div class="sample-block">
-    <div class="sample-title">Comparison 7</div>
-    <div class="audio-row">
-      <span class="label">GRPO</span>
-      <audio controls src="samples/group3_cmp1_grpo.wav"></audio>
-    </div>
-    <div class="audio-row">
-      <span class="label">RankDPO</span>
-      <audio controls src="samples/group3_cmp1_rankdpo.wav"></audio>
-    </div>
-  </div>
-
-  <div class="sample-block">
-    <div class="sample-title">Comparison 8</div>
-    <div class="audio-row">
-      <span class="label">GRPO</span>
-      <audio controls src="samples/group3_cmp2_grpo.wav"></audio>
-    </div>
-    <div class="audio-row">
-      <span class="label">RankDPO</span>
-      <audio controls src="samples/group3_cmp2_rankdpo.wav"></audio>
-    </div>
-  </div>
-
-  <div class="sample-block">
-    <div class="sample-title">Comparison 9</div>
-    <div class="audio-row">
-      <span class="label">GRPO</span>
-      <audio controls src="samples/group3_cmp3_grpo.wav"></audio>
-    </div>
-    <div class="audio-row">
-      <span class="label">RankDPO</span>
-      <audio controls src="samples/group3_cmp3_rankdpo.wav"></audio>
-    </div>
-  </div>
-
 </body>
 </html>
